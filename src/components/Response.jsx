@@ -427,6 +427,9 @@ const Response = () => {
               ))}
             </select>
           </form>
+          {
+            city ?
+            
           <div className="location">
             <div className="svg">
               <svg
@@ -442,6 +445,8 @@ const Response = () => {
               <span>{timee.slice(11)}</span>
             </div>
           </div>
+            : <></>
+          }
         </div>
         <div className="Response">
           {data ? (
