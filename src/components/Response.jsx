@@ -5,7 +5,7 @@ import "./styles/style.css";
 const Response = () => {
   const [data, setData] = useState(null);
   const [city, setCity] = useState("");
-  const [response, setResponse] = useState({ longitude: null, latitude: null});
+  const [response, setResponse] = useState({ longitude: null, latitude: null });
   const [temp, settemp] = useState();
   const [code, setcode] = useState(null);
   const [logo, setlogo] = useState();
@@ -17,7 +17,7 @@ const Response = () => {
   const [weekDayName, setweekDayName] = useState([]);
   const [logoo, setlogoo] = useState();
   const [wcodeLogoRespo, setwcodeLogoRespo] = useState([]);
-  const [isnight,setisnight] = useState('');
+  const [isnight, setisnight] = useState("");
 
   var classNameCities = "";
   var classNameIn = "";
@@ -52,6 +52,30 @@ const Response = () => {
       longitude: 40.7128,
       latitude: 74.006,
     },
+    {
+      id: 5,
+      name: "Paris",
+      longitude: 2.3522,
+      latitude: 48.8566,
+    },
+    {
+      id: 6,
+      name: "Berlin",
+      longitude: 13.405,
+      latitude: 52.52,
+    },
+    {
+      id: 7,
+      name: "Moscow",
+      longitude: 37.6173,
+      latitude: 55.7558,
+    },
+    {
+      id: 8,
+      name: "Madrid",
+      longitude: -3.7038,
+      latitude: 40.4168,
+    },
   ];
 
   const handleSelect = (e) => {
@@ -79,6 +103,26 @@ const Response = () => {
       classNameIn = "newYorkC";
       break;
 
+    case "Paris":
+      classNameCities = "containerParis";
+      classNameIn = "parisC";
+      break;
+
+    case "Berlin":
+      classNameCities = "containerBerlin";
+      classNameIn = "berlinC";
+      break;
+
+    case "Moscow":
+      classNameCities = "containerMoscow";
+      classNameIn = "moscowC";
+      break;
+
+    case "Madrid":
+      classNameCities = "containerMadrid";
+      classNameIn = "madridC";
+      break;
+
     default:
       break;
   }
@@ -86,37 +130,27 @@ const Response = () => {
   //console.log(data);
 
   useEffect(() => {
-
     const selectedVille = Villes.find((ville) => ville.name === city);
 
     if (selectedVille) {
-
       setResponse({
-
         longitude: selectedVille.longitude,
 
         latitude: selectedVille.latitude,
-
       });
-
     }
-
   }, [city]);
 
   useEffect(() => {
-    
     if (response.longitude && response.latitude) {
-      
       const myApi = `https://api.open-meteo.com/v1/forecast?latitude=${response.latitude}&longitude=${response.longitude}&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,visibility,et0_fao_evapotranspiration,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,et0_fao_evapotranspiration&timezone=auto&forecast_hours=24`;
-      
-      //https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max&timezone=auto&forecast_hours=24
-      
-      const getData = async () => {
 
+      //https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max&timezone=auto&forecast_hours=24
+
+      const getData = async () => {
         const res = await fetch(myApi);
 
         if (res.ok) {
-
           const myres = await res.json();
 
           setData(myres);
@@ -154,39 +188,30 @@ const Response = () => {
           // } else {
           //   setimg(isDay);
           // }
-
         }
-
       };
 
       getData();
-
     }
-
   }, [response]);
 
   console.log(data);
-  
-  useEffect(() => {
 
-    var classNameIsNight = isDay === 0 ? 'night' : 'day';
-  
+  useEffect(() => {
+    var classNameIsNight = isDay === 0 ? "night" : "day";
+
     setisnight(classNameIsNight);
-    
-  },[isDay])
+  }, [isDay]);
 
   console.log(isnight);
 
   useEffect(() => {
-
     const weekk = week.map((w) => {
-    
       const date = new Date(w);
-    
+
       return date.toLocaleDateString("en-US", { weekday: "long" });
-    
     });
-    
+
     setweekDayName(weekk.slice(1));
   }, [week]);
 
@@ -354,9 +379,7 @@ const Response = () => {
   };
 
   useEffect(() => {
-
     const weekkk = wcode.map((c) => {
-
       switch (c) {
         case 0:
           return sunny2();
@@ -395,19 +418,15 @@ const Response = () => {
           return thunder2();
         default:
           return overcast2();
-
       }
-
     });
 
     setwcodeLogoRespo(weekkk.slice(0, 6));
-
   }, [wcode]);
 
   //console.log(isDay);
 
   useEffect(() => {
-
     switch (code) {
       case 0:
         setlogo(sunny);
@@ -470,9 +489,7 @@ const Response = () => {
       default:
         setlogo(overcast);
         break;
-
     }
-
   }, [code]);
 
   return (
@@ -528,7 +545,7 @@ const Response = () => {
                   <>
                     <div className="week-container">
                       {weekDayName ? (
-                        weekDayName.map((w) => <span>{w + " "}</span>)
+                        weekDayName.map((w) => <span>{w}</span>)
                       ) : (
                         <></>
                       )}
@@ -539,7 +556,7 @@ const Response = () => {
                           <div key={index}>{IconComponent}</div>
                         ))
                       ) : (
-                        <>err</>
+                        <></>
                       )}
                     </div>
                   </>
