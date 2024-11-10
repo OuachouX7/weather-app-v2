@@ -31,43 +31,28 @@ const Response = () => {
     {
       id: 1,
       name: "Agadir",
-      src: "./images/agadir.jpg",
       longitude: 9.5925,
       latitude: 30.428,
     },
     {
       id: 2,
       name: "Rabat",
-      src: "./images/rabat.jpg",
       longitude: 6.8539,
       latitude: 34.0084,
     },
     {
       id: 3,
       name: "Tanger",
-      src: "./images/tanger.jpg",
       longitude: 5.834,
       latitude: 35.7595,
     },
     {
       id: 4,
       name: "New York",
-      src: "./images/newYork.jpg",
       longitude: 40.7128,
       latitude: 74.006,
     },
   ];
-
-  const animationn = () => {
-    return (
-      <div className={data ? "" : "animation2"}>
-        <div className="first2"></div>
-        <div className="second2"></div>
-        <div className="third2"></div>
-        <div className="last2"></div>
-      </div>
-    );
-  };
 
   const handleSelect = (e) => {
     setCity(e.target.value);
@@ -102,12 +87,19 @@ const Response = () => {
 
   useEffect(() => {
     const selectedVille = Villes.find((ville) => ville.name === city);
+
     if (selectedVille) {
+
       setResponse({
+
         longitude: selectedVille.longitude,
+
         latitude: selectedVille.latitude,
+
       });
+
     }
+
   }, [city]);
 
   useEffect(() => {
@@ -115,7 +107,9 @@ const Response = () => {
     if (response.longitude && response.latitude) {
       
       const myApi = `https://api.open-meteo.com/v1/forecast?latitude=${response.latitude}&longitude=${response.longitude}&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,visibility,et0_fao_evapotranspiration,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,et0_fao_evapotranspiration&timezone=auto&forecast_hours=24`;
+      
       //https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max&timezone=auto&forecast_hours=24
+      
       const getData = async () => {
 
         const res = await fetch(myApi);
@@ -159,12 +153,12 @@ const Response = () => {
           //   setimg(isDay);
           // }
 
-          
         }
       };
       getData();
     }
   }, [response]);
+
   console.log(data);
   
   useEffect(() => {
@@ -174,11 +168,8 @@ const Response = () => {
     setisnight(classNameIsNight);
   },[isDay])
 
-
-  
-  
-
   console.log(isnight);
+
   useEffect(() => {
     const weekk = week.map((w) => {
       const date = new Date(w);
@@ -304,8 +295,11 @@ const Response = () => {
   const rainTwo2 = () => {
     return <div className="rainTwo2"></div>;
   };
+
   useEffect(() => {
+
     const weekkk = wcode.map((c) => {
+
       switch (c) {
         case 0:
           return sunny2();
@@ -344,14 +338,19 @@ const Response = () => {
           return thunder2();
         default:
           return overcast2();
+
       }
+
     });
 
     setwcodeLogoRespo(weekkk.slice(0, 6));
+
   }, [wcode]);
 
   //console.log(isDay);
+
   useEffect(() => {
+
     switch (code) {
       case 0:
         setlogo(sunny);
@@ -414,7 +413,9 @@ const Response = () => {
       default:
         setlogo(overcast);
         break;
+        
     }
+
   }, [code]);
 
   return (
