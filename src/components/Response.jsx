@@ -1,9 +1,5 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import agadir from "./images/agadir.jpg";
-import rabat from "./images/rabat.jpg";
-import tanger from "./images/tanger.jpg";
-import newYork from "./images/newYork.jpg";
 import "./styles/style.css";
 
 const Response = () => {
@@ -21,11 +17,10 @@ const Response = () => {
   const [weekDayName, setweekDayName] = useState([]);
   const [logoo, setlogoo] = useState();
   const [wcodeLogoRespo, setwcodeLogoRespo] = useState([]);
+  const [isnight,setisnight] = useState('');
 
-  var mysrc = "";
   var classNameCities = "";
   var classNameIn = "";
-  var classNameIsNight = "";
   const currentDate = new Date();
   const today = currentDate.getDate();
   const dayName = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(
@@ -63,31 +58,38 @@ const Response = () => {
     },
   ];
 
+  const animationn = () => {
+    return (
+      <div className={data ? "" : "animation2"}>
+        <div className="first2"></div>
+        <div className="second2"></div>
+        <div className="third2"></div>
+        <div className="last2"></div>
+      </div>
+    );
+  };
+
   const handleSelect = (e) => {
     setCity(e.target.value);
   };
 
   switch (city) {
     case "Agadir":
-      mysrc = agadir;
       classNameCities = "containerAgadir";
       classNameIn = "agadirC";
       break;
 
     case "Rabat":
-      mysrc = rabat;
       classNameCities = "containerRabat";
       classNameIn = "rabatC";
       break;
 
     case "Tanger":
-      mysrc = tanger;
       classNameCities = "containerTanger";
       classNameIn = "tangerC";
       break;
 
     case "New York":
-      mysrc = newYork;
       classNameCities = "containerNewYork";
       classNameIn = "newYorkC";
       break;
@@ -109,18 +111,21 @@ const Response = () => {
   }, [city]);
 
   useEffect(() => {
+    
     if (response.longitude && response.latitude) {
+      
       const myApi = `https://api.open-meteo.com/v1/forecast?latitude=${response.latitude}&longitude=${response.longitude}&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,visibility,et0_fao_evapotranspiration,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,et0_fao_evapotranspiration&timezone=auto&forecast_hours=24`;
       //https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max&timezone=auto&forecast_hours=24
       const getData = async () => {
+
         const res = await fetch(myApi);
+
         if (res.ok) {
+
           const myres = await res.json();
           setData(myres);
 
           console.log(myres);
-
-          var isRaining = myres.current.rain;
 
           settemp(myres.current.temperature_2m);
 
@@ -146,8 +151,6 @@ const Response = () => {
 
           var weekCode = myres.daily.weather_code;
 
-          var daytwo = myres.daily.weather_code;
-
           setwcode(weekCode);
 
           // if (isRaining === 1) {
@@ -156,26 +159,26 @@ const Response = () => {
           //   setimg(isDay);
           // }
 
-          switch (isDay) {
-            case 0:
-              classNameIsNight = "night";
-              break;
-
-            case 1:
-              classNameIsNight = "day";
-              break;
-
-            default:
-              classNameIsNight = "night";
-              break;
-          }
+          
         }
       };
       getData();
     }
   }, [response]);
+  console.log(data);
+  
+  useEffect(() => {
 
-  console.log(code);
+    var classNameIsNight = isDay === 0 ? 'night' : 'day';
+  
+    setisnight(classNameIsNight);
+  },[isDay])
+
+
+  
+  
+
+  console.log(isnight);
   useEffect(() => {
     const weekk = week.map((w) => {
       const date = new Date(w);
@@ -344,7 +347,7 @@ const Response = () => {
       }
     });
 
-    setwcodeLogoRespo(weekkk.slice(0, 6)); 
+    setwcodeLogoRespo(weekkk.slice(0, 6));
   }, [wcode]);
 
   //console.log(isDay);
@@ -415,10 +418,10 @@ const Response = () => {
   }, [code]);
 
   return (
-    <div className={`${classNameCities} ${classNameIsNight}`}>
+    <div className={`${classNameCities} ${isnight}`}>
       <div className="formRespo">
-        <div className={`${classNameIn} ${classNameIsNight}`}>
-          <form className="form">
+        <div className={`${classNameIn} ${isnight}`}>
+          <form className={data ? "form" : "noRes"}>
             <select onChange={handleSelect} value={city} className="select">
               {Villes.map((ville) => (
                 <option className="option" key={ville.id} value={ville.name}>
@@ -427,28 +430,27 @@ const Response = () => {
               ))}
             </select>
           </form>
-          {
-            city ?
-            
-          <div className="location">
-            <div className="svg">
-              <svg
-                className="locationSvg"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 384 512"
-              >
-                <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-              </svg>
+          {city ? (
+            <div className="location">
+              <div className="svg">
+                <svg
+                  className="locationSvg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                >
+                  <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                </svg>
+              </div>
+              <div className="locationInfos">
+                <span>{city}</span>
+                <span>{timee.slice(11)}</span>
+              </div>
             </div>
-            <div className="locationInfos">
-              <span>{city}</span>
-              <span>{timee.slice(11)}</span>
-            </div>
-          </div>
-            : <></>
-          }
+          ) : (
+            <></>
+          )}
         </div>
-        <div className="Response">
+        <div className={data ? "Response" : "Response"}>
           {data ? (
             <>
               <div className="myres1">
@@ -468,18 +470,18 @@ const Response = () => {
                   <>
                     <div className="week-container">
                       {weekDayName ? (
-                        weekDayName.map((w) => <span>{w + ' '}</span>)
+                        weekDayName.map((w) => <span>{w + " "}</span>)
                       ) : (
                         <></>
                       )}
                     </div>
                     <div className="weekCode-container">
-                      {wcodeLogoRespo && wcodeLogoRespo.length > 0 ? (
+                      {wcodeLogoRespo ? (
                         wcodeLogoRespo.map((IconComponent, index) => (
                           <div key={index}>{IconComponent}</div>
                         ))
                       ) : (
-                        <p>No weather data available</p>
+                        <>err</>
                       )}
                     </div>
                   </>
