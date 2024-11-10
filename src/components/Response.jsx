@@ -5,7 +5,7 @@ import "./styles/style.css";
 const Response = () => {
   const [data, setData] = useState(null);
   const [city, setCity] = useState("");
-  const [response, setResponse] = useState({ longitude: null, latitude: null });
+  const [response, setResponse] = useState({ longitude: null, latitude: null});
   const [temp, settemp] = useState();
   const [code, setcode] = useState(null);
   const [logo, setlogo] = useState();
@@ -86,6 +86,7 @@ const Response = () => {
   //console.log(data);
 
   useEffect(() => {
+
     const selectedVille = Villes.find((ville) => ville.name === city);
 
     if (selectedVille) {
@@ -117,6 +118,7 @@ const Response = () => {
         if (res.ok) {
 
           const myres = await res.json();
+
           setData(myres);
 
           console.log(myres);
@@ -154,9 +156,13 @@ const Response = () => {
           // }
 
         }
+
       };
+
       getData();
+
     }
+
   }, [response]);
 
   console.log(data);
@@ -166,15 +172,21 @@ const Response = () => {
     var classNameIsNight = isDay === 0 ? 'night' : 'day';
   
     setisnight(classNameIsNight);
+    
   },[isDay])
 
   console.log(isnight);
 
   useEffect(() => {
+
     const weekk = week.map((w) => {
+    
       const date = new Date(w);
+    
       return date.toLocaleDateString("en-US", { weekday: "long" });
+    
     });
+    
     setweekDayName(weekk.slice(1));
   }, [week]);
 
@@ -200,9 +212,9 @@ const Response = () => {
 
   const sunny = () => {
     return (
-      <div className="sunnyContainer">
+      <div className="wContainer">
         <div className="sunny"></div>
-        <div className="wint">{wintSpeed}</div>
+        <div className="wint">{wintSpeed} km/h</div>
       </div>
     );
   };
@@ -213,7 +225,7 @@ const Response = () => {
 
   const overcast = () => {
     return (
-      <div className="overcastContainer">
+      <div className="wContainer">
         <div className="overcast"></div>
         <div className="wint">{wintSpeed} km/h</div>
       </div>
@@ -225,7 +237,12 @@ const Response = () => {
   };
 
   const fog = () => {
-    return <div className="fog"></div>;
+    return (
+      <div className="wContainer">
+        <div className="fog"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const fog2 = () => {
@@ -233,7 +250,12 @@ const Response = () => {
   };
 
   const drizzle = () => {
-    return <div className="drizzle"></div>;
+    return (
+      <div className="wContainer">
+        <div className="drizzle"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const drizzle2 = () => {
@@ -241,7 +263,12 @@ const Response = () => {
   };
 
   const freezdrizzle = () => {
-    return <div className="freezdrizzle"></div>;
+    return (
+      <div className="wContainer">
+        <div className="freezdrizzle"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const freezdrizzle2 = () => {
@@ -249,7 +276,12 @@ const Response = () => {
   };
 
   const rainOne = () => {
-    return <div className="rainOne"></div>;
+    return (
+      <div className="wContainer">
+        <div className="rainOne"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const rainOne2 = () => {
@@ -257,7 +289,12 @@ const Response = () => {
   };
 
   const snowzyRain = () => {
-    return <div className="snowzyRain"></div>;
+    return (
+      <div className="wContainer">
+        <div className="snowzyRain"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const snowzyRain2 = () => {
@@ -265,7 +302,12 @@ const Response = () => {
   };
 
   const thunder = () => {
-    return <div className="thunder"></div>;
+    return (
+      <div className="wContainer">
+        <div className="thunder"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const thunder2 = () => {
@@ -273,7 +315,12 @@ const Response = () => {
   };
 
   const snowOne = () => {
-    return <div className="snowOne"></div>;
+    return (
+      <div className="wContainer">
+        <div className="snowOne"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const snowOne2 = () => {
@@ -281,7 +328,12 @@ const Response = () => {
   };
 
   const snowTwo = () => {
-    return <div className="snowTwo"></div>;
+    return (
+      <div className="wContainer">
+        <div className="snowTwo"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const snowTwo2 = () => {
@@ -289,7 +341,12 @@ const Response = () => {
   };
 
   const rainTwo = () => {
-    return <div className="rainTwo"></div>;
+    return (
+      <div className="wContainer">
+        <div className="rainTwo"></div>
+        <div className="wint">{wintSpeed} km/h</div>
+      </div>
+    );
   };
 
   const rainTwo2 = () => {
@@ -413,7 +470,7 @@ const Response = () => {
       default:
         setlogo(overcast);
         break;
-        
+
     }
 
   }, [code]);
