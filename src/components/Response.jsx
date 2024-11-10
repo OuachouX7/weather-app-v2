@@ -569,7 +569,7 @@ const Response = () => {
                     <div className="weekTemp-container">
                       {weektemp ? (
                         weektemp.map((te, index) => (
-                          <div key={index}>{te}</div>
+                          <div key={index}>{te} °C</div>
                         ))
                       ) : (
                         <></>
