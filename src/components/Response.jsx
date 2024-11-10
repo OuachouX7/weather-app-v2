@@ -15,6 +15,7 @@ const Response = () => {
   const [week, setweek] = useState([]);
   const [wcode, setwcode] = useState([]);
   const [weekDayName, setweekDayName] = useState([]);
+  const [weektemp, setweektemp] = useState([]);
   const [logoo, setlogoo] = useState();
   const [wcodeLogoRespo, setwcodeLogoRespo] = useState([]);
   const [isnight, setisnight] = useState("");
@@ -183,6 +184,10 @@ const Response = () => {
 
           setwcode(weekCode);
 
+          var weekT = myres.daily.temperature_2m_min;
+
+          setweektemp(weekT.slice(1));
+
           // if (isRaining === 1) {
           //   setimg(rain);
           // } else {
@@ -196,6 +201,8 @@ const Response = () => {
   }, [response]);
 
   console.log(data);
+
+  console.log(weektemp);
 
   useEffect(() => {
     var classNameIsNight = isDay === 0 ? "night" : "day";
@@ -500,7 +507,7 @@ const Response = () => {
             <select onChange={handleSelect} value={city} className="select">
               {Villes.map((ville) => (
                 <option className="option" key={ville.id} value={ville.name}>
-                  {ville.name}
+                  <span>{ville.name}</span>
                 </option>
               ))}
             </select>
@@ -554,6 +561,15 @@ const Response = () => {
                       {wcodeLogoRespo ? (
                         wcodeLogoRespo.map((IconComponent, index) => (
                           <div key={index}>{IconComponent}</div>
+                        ))
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                    <div className="weekTemp-container">
+                      {weektemp ? (
+                        weektemp.map((te, index) => (
+                          <div key={index}>{te}</div>
                         ))
                       ) : (
                         <></>
