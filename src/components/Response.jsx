@@ -22,6 +22,7 @@ const Response = () => {
 
   var classNameCities = "";
   var classNameIn = "";
+
   const currentDate = new Date();
   const today = currentDate.getDate();
   const dayName = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(
@@ -78,11 +79,11 @@ const Response = () => {
       latitude: 40.4168,
     },
     {
-      id : 9,
-      name : 'Tokyo',
-      longitude : 139.6503,
-      latitude : 35.6762
-    }
+      id: 9,
+      name: "Tokyo",
+      longitude: 139.6503,
+      latitude: 35.6762,
+    },
   ];
 
   const handleSelect = (e) => {
@@ -130,7 +131,7 @@ const Response = () => {
       classNameIn = "madridC";
       break;
 
-      case "Tokyo":
+    case "Tokyo":
       classNameCities = "containerTokyo";
       classNameIn = "TokyoC";
       break;
@@ -140,11 +141,9 @@ const Response = () => {
   }
 
   useEffect(() => {
-    
     const selectedVille = Villes.find((ville) => ville.name === city);
 
     if (selectedVille) {
-    
       setResponse({
         longitude: selectedVille.longitude,
 
@@ -154,10 +153,9 @@ const Response = () => {
   }, [city]);
 
   useEffect(() => {
-    
     if (response.longitude && response.latitude) {
       const myApi = `https://api.open-meteo.com/v1/forecast?latitude=${response.latitude}&longitude=${response.longitude}&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,surface_pressure,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,rain,weather_code,pressure_msl,surface_pressure,visibility,et0_fao_evapotranspiration,wind_speed_10m,wind_direction_10m,temperature_80m,temperature_120m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,et0_fao_evapotranspiration&timezone=auto&forecast_hours=24`;
-      
+
       const getData = async () => {
         const res = await fetch(myApi);
 
@@ -197,7 +195,6 @@ const Response = () => {
           var weekT = myres.daily.temperature_2m_min;
 
           setweektemp(weekT.slice(1));
-
         }
       };
 
@@ -205,17 +202,11 @@ const Response = () => {
     }
   }, [response]);
 
-  console.log(data);
-
-  console.log(weektemp);
-
   useEffect(() => {
     var classNameIsNight = isDay === 0 ? "night" : "day";
 
     setisnight(classNameIsNight);
   }, [isDay]);
-
-  console.log(isnight);
 
   useEffect(() => {
     const weekk = week.map((w) => {
@@ -226,8 +217,6 @@ const Response = () => {
 
     setweekDayName(weekk.slice(1));
   }, [week]);
-
-  console.log(wcodeLogoRespo);
 
   const sunny = () => {
     return (
@@ -368,10 +357,6 @@ const Response = () => {
     );
   };
 
-  const rainTwo2 = () => {
-    return <div className="rainTwo2"></div>;
-  };
-
   useEffect(() => {
     const weekkk = wcode.map((c) => {
       switch (c) {
@@ -417,8 +402,6 @@ const Response = () => {
 
     setwcodeLogoRespo(weekkk.slice(0, 6));
   }, [wcode]);
-
-  //console.log(isDay);
 
   useEffect(() => {
     switch (code) {
@@ -539,7 +522,9 @@ const Response = () => {
                   <div className="weekCards">
                     <div className="week-container">
                       {weekDayName ? (
-                        weekDayName.map((w,index) => <span key={index}>{w}</span>)
+                        weekDayName.map((w, index) => (
+                          <span key={index}>{w}</span>
+                        ))
                       ) : (
                         <></>
                       )}

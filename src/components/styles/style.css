@@ -73,7 +73,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.weekCards{
+.weekCards {
   height: 100%;
   width: 100%;
   display: flex;
@@ -377,7 +377,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/100.png);
 }
 .wContainer {
@@ -412,7 +412,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/3.png);
 }
 .fog2 {
@@ -423,7 +423,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/fog.png);
 }
 .fog {
@@ -456,7 +456,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/drizzle.png);
 }
 .freezdrizzle {
@@ -478,7 +478,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/snowdrizzle.png);
 }
 .rainOne {
@@ -500,7 +500,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/6165.png);
 }
 .snowzyRain {
@@ -522,7 +522,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/snowzyRain.png);
 }
 .thunder {
@@ -544,7 +544,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/303.png);
 }
 .snowOne {
@@ -566,7 +566,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/402.png);
 }
 
@@ -589,7 +589,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/410.png);
 }
 
@@ -612,7 +612,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   height: 60px;
-  padding : 5px;
+  padding: 5px;
   background-image: url(../weathercode/317.png);
 }
 .temp {
@@ -633,7 +633,7 @@
 .night {
   filter: grayscale(60%);
 }
-.day{
+.day {
   filter: grayscale(0%);
   width: 100%;
 }
@@ -674,7 +674,7 @@
   display: flex;
   justify-content: space-between;
 }
-.week-container{
+.week-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -699,13 +699,13 @@
   height: 90vh;
   width: 100%;
 }
-.weekTemp-container{
+.weekTemp-container {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: space-between;
 }
-.weekTemp-container > div{
+.weekTemp-container > div {
   font-weight: bolder;
   text-align: center;
   width: 100px;
