@@ -278,6 +278,39 @@
   justify-content: space-between;
   height: 80%;
 }
+
+.containerTokyo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.containerTokyo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/Tokyo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.TokyoC {
+  background-image: url("../images/Tokyo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+}
 .containerNewYork {
   position: relative;
   width: 100%;

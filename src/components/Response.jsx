@@ -77,6 +77,12 @@ const Response = () => {
       longitude: -3.7038,
       latitude: 40.4168,
     },
+    {
+      id : 9,
+      name : 'Tokyo',
+      longitude : 139.6503,
+      latitude : 35.6762
+    }
   ];
 
   const handleSelect = (e) => {
@@ -122,6 +128,11 @@ const Response = () => {
     case "Madrid":
       classNameCities = "containerMadrid";
       classNameIn = "madridC";
+      break;
+
+      case "Tokyo":
+      classNameCities = "containerTokyo";
+      classNameIn = "TokyoC";
       break;
 
     default:
