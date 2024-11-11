@@ -494,7 +494,7 @@ const Response = () => {
             <select onChange={handleSelect} value={city} className="select">
               {Villes.map((ville) => (
                 <option className="option" key={ville.id} value={ville.name}>
-                  <span>{ville.name}</span>
+                  {ville.name}
                 </option>
               ))}
             </select>
@@ -539,7 +539,7 @@ const Response = () => {
                   <div className="weekCards">
                     <div className="week-container">
                       {weekDayName ? (
-                        weekDayName.map((w) => <span>{w}</span>)
+                        weekDayName.map((w,index) => <span key={index}>{w}</span>)
                       ) : (
                         <></>
                       )}
