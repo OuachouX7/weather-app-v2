@@ -483,13 +483,17 @@ const Response = () => {
 
   return (
     <div className={`${classNameCities} ${isnight}`}>
-      <div className="formRespo">
-        <div className={`${classNameIn} ${isnight}`}>
+      <div className={city ? "formRespo" : "noResponse"}>
+        <div
+          className={
+            isnight && classNameIn ? `${classNameIn} ${isnight}` : "tuzz"
+          }
+        >
           <form className={data ? "form" : "noRes"}>
             <select
               onChange={handleSelect}
               value={city}
-              className={isSelect ? "select selectClicked" : "select"}
+              className={city ? "sele" : "select"}
             >
               {Villes.map((ville) => (
                 <option className="option" key={ville.id} value={ville.name}>
@@ -568,7 +572,21 @@ const Response = () => {
               </div>
             </>
           ) : (
-            <></>
+            <>
+              <>
+                <div className="animation2">
+                  <div className="first2"></div>
+                  <div className="second2"></div>
+                  <div className="third2"></div>
+                  <div className="last2"></div>
+                </div>
+                <br />
+                
+              </>
+              <>
+                Select A City
+              </>
+            </>
           )}
         </div>
       </div>

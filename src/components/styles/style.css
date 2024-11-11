@@ -37,6 +37,18 @@
   background-color: transparent;
   border: none;
   outline: none;
+  text-align: center;
+  width: 180px;
+  height: 50px;
+  font-size: 30px;
+  margin: 10px;
+}
+.sele {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: left;
   width: 180px;
   height: 50px;
   font-size: 30px;
@@ -59,6 +71,7 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .myres1 {
   height: 100%;
@@ -740,7 +753,7 @@
 .noRes {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   height: 90vh;
   width: 100%;
 }
@@ -754,4 +767,103 @@
   font-weight: bolder;
   text-align: center;
   width: 100px;
+}
+.animation2 > div{
+  width: 2%;
+  height: 20%;
+  background-color: rgb(22, 21, 21);
+  margin: 0 5px ;
+  border-radius: 10px;
+}
+.first2{
+  animation: transform21;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+@keyframes transform21 {
+  0%{
+      height: 1%;
+  }
+  50%{
+      height: 20%;
+  }
+  100%{
+      height: 1%;
+  }
+}
+.second2{
+  animation: transform22;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+@keyframes transform22 {
+  0%{
+      height: 1%;
+  }
+  10%{
+      height: 1%;
+  }
+  60%{
+      height: 20%;
+  }
+  100%{
+      height: 1%;
+  }
+}
+.third2{
+  animation: transform31;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+@keyframes transform31 {
+  0%{
+      height: 1%;
+  }
+  20%{
+      height: 1%;
+  }
+  70%{
+      height: 20%;
+  }
+  100%{
+      height: 1%;
+  }
+}
+.last2{
+  animation: transform41;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+@keyframes transform41 {
+  0%{
+      height: 1%;
+  }
+  30%{
+      height: 1%;
+  }
+  80%{
+      height: 20%;
+  }
+  100%{
+      height: 1%;
+  }
+}
+.animation2{
+  width: 100%;
+  height: 400px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.noResponse{
+  width: 100%;
+  height: auto;
+}
+.tuzz{
+  height: 80px;
+  display: flex;
+  justify-content: center;
 }
