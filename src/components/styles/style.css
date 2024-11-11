@@ -635,6 +635,7 @@
 }
 .day{
   filter: grayscale(0%);
+  width: 100%;
 }
 .temp-date {
   display: flex;
@@ -694,7 +695,7 @@
 .noRes {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   height: 90vh;
   width: 100%;
 }
