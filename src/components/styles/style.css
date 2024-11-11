@@ -371,7 +371,7 @@
 }
 .sunny2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -406,7 +406,7 @@
 }
 .overcast2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -417,7 +417,7 @@
 }
 .fog2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -450,7 +450,7 @@
 }
 .drizzle2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -472,7 +472,7 @@
 }
 .freezdrizzle2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -494,7 +494,7 @@
 }
 .rainOne2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -516,7 +516,7 @@
 }
 .snowzyRain2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -538,7 +538,7 @@
 }
 .thunder2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -560,7 +560,7 @@
 }
 .snowOne2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -583,7 +583,7 @@
 }
 .snowTwo2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -606,7 +606,7 @@
 }
 .rainTwo2 {
   background-size: contain;
-  width: 60px;
+  width: 90px;
   margin: 0 2px;
   background-position: center;
   background-size: contain;
@@ -680,8 +680,9 @@
   align-items: center;
 }
 .week-container > span {
-  width: 70px;
+  width: 100px;
   text-align: center;
+  font-weight: bolder;
 }
 .weather-icon {
   width: 10%;
@@ -705,5 +706,5 @@
 }
 .weekTemp-container > div{
   text-align: center;
-  width: 70px;
+  width: 100px;
 }
