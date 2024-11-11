@@ -73,6 +73,14 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.weekCards{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .imgg {
   width: 100%;
   height: 10vh;
@@ -325,7 +333,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 70%;
+  height: 60%;
   background-image: url(../weathercode/100.png);
 }
 .sunny2 {
@@ -345,13 +353,13 @@
   height: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   color: white;
 }
 .wint {
   display: flex;
   justify-content: center;
-  height: 20%;
-  margin: 0 0 30px 0;
+  height: auto;
   width: 100%;
 }
 .overcast {
@@ -360,7 +368,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 70%;
+  height: 60%;
   background-image: url(../weathercode/3.png);
 }
 .overcast2 {
@@ -393,7 +401,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/fog.png);
 }
 .drizzle {
@@ -404,7 +412,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/drizzle.png);
 }
 .drizzle2 {
@@ -426,7 +434,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/snowdrizzle.png);
 }
 .freezdrizzle2 {
@@ -448,7 +456,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/6165.png);
 }
 .rainOne2 {
@@ -470,7 +478,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/snowzyRain.png);
 }
 .snowzyRain2 {
@@ -492,7 +500,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/303.png);
 }
 .thunder2 {
@@ -514,7 +522,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/402.png);
 }
 .snowOne2 {
@@ -537,7 +545,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/410.png);
 }
 .snowTwo2 {
@@ -560,7 +568,7 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 60%;
   background-image: url(../weathercode/317.png);
 }
 .rainTwo2 {
@@ -578,11 +586,9 @@
   font-size: 30px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  height: 50%;
 }
 .date {
-  height: 50%;
+  height: auto;
 }
 .date > span {
   font-size: 18px;

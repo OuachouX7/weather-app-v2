@@ -549,7 +549,7 @@ const Response = () => {
               </div>
               <div className="my-res2">
                 {
-                  <>
+                  <div className="weekCards">
                     <div className="week-container">
                       {weekDayName ? (
                         weekDayName.map((w) => <span>{w}</span>)
@@ -575,7 +575,7 @@ const Response = () => {
                         <></>
                       )}
                     </div>
-                  </>
+                  </div>
                 }
               </div>
             </>
