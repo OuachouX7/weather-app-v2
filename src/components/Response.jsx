@@ -7,6 +7,7 @@ const Response = () => {
   const [city, setCity] = useState("");
   const [response, setResponse] = useState({ longitude: null, latitude: null });
   const [temp, settemp] = useState();
+  const [isSelect, setisSelect] = useState(false);
   const [code, setcode] = useState(null);
   const [logo, setlogo] = useState();
   const [isDay, setisDay] = useState("");
@@ -84,6 +85,12 @@ const Response = () => {
       longitude: 139.6503,
       latitude: 35.6762,
     },
+    {
+      id: 10,
+      name: "Magdan",
+      longitude: 150.8027,
+      latitude: 59.568,
+    },
   ];
 
   const handleSelect = (e) => {
@@ -134,6 +141,11 @@ const Response = () => {
     case "Tokyo":
       classNameCities = "containerTokyo";
       classNameIn = "TokyoC";
+      break;
+
+    case "Magdan":
+      classNameCities = "containerMagdan";
+      classNameIn = "MagdanC";
       break;
 
     default:
@@ -474,7 +486,11 @@ const Response = () => {
       <div className="formRespo">
         <div className={`${classNameIn} ${isnight}`}>
           <form className={data ? "form" : "noRes"}>
-            <select onChange={handleSelect} value={city} className="select">
+            <select
+              onChange={handleSelect}
+              value={city}
+              className={isSelect ? "select selectClicked" : "select"}
+            >
               {Villes.map((ville) => (
                 <option className="option" key={ville.id} value={ville.name}>
                   {ville.name}
