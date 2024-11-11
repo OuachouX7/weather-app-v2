@@ -705,6 +705,7 @@
   justify-content: space-between;
 }
 .weekTemp-container > div{
+  font-weight: bolder;
   text-align: center;
   width: 100px;
 }
