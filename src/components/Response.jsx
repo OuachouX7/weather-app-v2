@@ -543,7 +543,7 @@ const Response = () => {
                     <div className="week-container">
                       {weekDayName ? (
                         weekDayName.map((w, index) => (
-                          <span key={index}>{w}</span>
+                          <span className="wt" key={index}>{w}</span>
                         ))
                       ) : (
                         <></>
@@ -561,7 +561,7 @@ const Response = () => {
                     <div className="weekTemp-container">
                       {weektemp ? (
                         weektemp.map((te, index) => (
-                          <div key={index}>{te} °C</div>
+                          <div className="wt" key={index}>{te} °C</div>
                         ))
                       ) : (
                         <></>
@@ -584,7 +584,7 @@ const Response = () => {
                 
               </>
               <>
-                Select A City
+                
               </>
             </>
           )}
