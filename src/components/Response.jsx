@@ -31,8 +31,7 @@ const Response = () => {
 
   const handleSpan = (c) => {
     console.log(c);
-    
-  }
+  };
 
   // var classNameCities = "";
   // var classNameIn = "";
@@ -436,6 +435,7 @@ const Response = () => {
   //       break;
   //   }
   // }, [code]);
+  
 
   return (
     // <div className={`${classNameCities} ${isnight}`}>
@@ -548,16 +548,20 @@ const Response = () => {
     // </div>
     <>
       <div className={togglee ? "dropDown" : "noDrop"}>
-    Select City
-        <button onClick={handleSelect}> &gt; </button>
+        Select City
+        <button onClick={handleSelect}> &gt; </button> 
         <br />
         {cities.map((ville) => (
           <>
-            <span className="span" key={ville.id} value={ville.name} onClick={() => handleSpan(ville)}>
-              <img className="fllag" src={ville.src} alt="" />
+            <span
+              className="span"
+              key={ville.id}
+              value={ville.name}
+              onClick={() => handleSpan(ville)}
+            >
+              <img className="fllag" src={ville.src} alt={ville.alt} />
               <p>{ville.name}</p>
             </span>
-
           </>
         ))}
       </div>
