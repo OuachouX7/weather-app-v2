@@ -1,4 +1,4 @@
-.containerAgadir {
+/* .containerAgadir {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -52,7 +52,7 @@
   border: none;
   outline: none;
   text-align: left;
-  width: 180px;
+  width: auto;
   height: 50px;
   font-size: 30px;
   margin: 10px;
@@ -771,87 +771,87 @@
   text-align: center;
   width: 100px;
 }
-.animation2 > div{
+.animation2 > div {
   width: 2%;
   height: 20%;
   background-color: rgb(22, 21, 21);
-  margin: 0 5px ;
+  margin: 0 5px;
   border-radius: 10px;
 }
-.first2{
+.first2 {
   animation: transform21;
   animation-iteration-count: infinite;
   animation-duration: 2s;
 }
 @keyframes transform21 {
-  0%{
-      height: 1%;
+  0% {
+    height: 1%;
   }
-  50%{
-      height: 20%;
+  50% {
+    height: 20%;
   }
-  100%{
-      height: 1%;
+  100% {
+    height: 1%;
   }
 }
-.second2{
+.second2 {
   animation: transform22;
   animation-iteration-count: infinite;
   animation-duration: 2s;
 }
 @keyframes transform22 {
-  0%{
-      height: 1%;
+  0% {
+    height: 1%;
   }
-  10%{
-      height: 1%;
+  10% {
+    height: 1%;
   }
-  60%{
-      height: 20%;
+  60% {
+    height: 20%;
   }
-  100%{
-      height: 1%;
+  100% {
+    height: 1%;
   }
 }
-.third2{
+.third2 {
   animation: transform31;
   animation-iteration-count: infinite;
   animation-duration: 2s;
 }
 @keyframes transform31 {
-  0%{
-      height: 1%;
+  0% {
+    height: 1%;
   }
-  20%{
-      height: 1%;
+  20% {
+    height: 1%;
   }
-  70%{
-      height: 20%;
+  70% {
+    height: 20%;
   }
-  100%{
-      height: 1%;
+  100% {
+    height: 1%;
   }
 }
-.last2{
+.last2 {
   animation: transform41;
   animation-iteration-count: infinite;
   animation-duration: 2s;
 }
 @keyframes transform41 {
-  0%{
-      height: 1%;
+  0% {
+    height: 1%;
   }
-  30%{
-      height: 1%;
+  30% {
+    height: 1%;
   }
-  80%{
-      height: 20%;
+  80% {
+    height: 20%;
   }
-  100%{
-      height: 1%;
+  100% {
+    height: 1%;
   }
 }
-.animation2{
+.animation2 {
   width: 100%;
   height: 400px;
   background-color: #ffffff;
@@ -859,14 +859,44 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
 }
-.noResponse{
+.noResponse {
   width: 100%;
   height: auto;
 }
-.tuzz{
+.tuzz {
   height: 80px;
   display: flex;
   justify-content: center;
+} */
+
+.fllag{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.dropDown{
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #cdc7c7;
+}
+span{
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #EEE;
+  padding: 20px;
+  min-width: 132px;
+}
+.noDrop > span{
+  display: none;
+  
+
+}
+.noDrop{
+  background-color: #cdc7c7;
+  width: 200px;
 }
